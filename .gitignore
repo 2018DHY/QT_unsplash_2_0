@@ -5,3 +5,4 @@ cmake-build-debug/
 /.idea/modules.xml
 /.idea/QT_unsplash_2.0.iml
 /.idea/vcs.xml
+/build
