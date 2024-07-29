@@ -16,7 +16,8 @@ class QJsonArray;
 
 
 
-class net_control :public QThread {
+class net_control : public QThread
+{
     Q_OBJECT
 public:
     net_control();
@@ -28,7 +29,7 @@ private:
     cpr::Response r;
 
 public slots:
-        void signal_launch();
+    void signal_launch();
 
 };
 

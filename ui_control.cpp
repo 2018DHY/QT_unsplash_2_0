@@ -4,15 +4,16 @@
 
 #include "ui_control.h"
 
-ui_control::ui_control(QWidget *parent) {
+ui_control::ui_control(QWidget *parent)
+{
     if(this->objectName().isEmpty())
-        this->setObjectName("QT_unsplash_");
+        this->setObjectName("QT_unsplash_2");
     QScreen* qScreen = qApp->primaryScreen();
 
     //设置窗口位置以及大小
     int myApp_size_width = (int)(0.8 * qScreen->size().width());//宽度为屏幕的80%
 //    this->resize(myApp_size_width,qScreen->size().height());//高度为屏幕的100%
-    this->setGeometry((int)(0.1 * qScreen->size().width()),0,myApp_size_width,qScreen->size().height());
+    this->setGeometry((int)(0.1 * qScreen->size().width()), 0.1 * qScreen->size().height(), myApp_size_width, qScreen->size().height() * 0.8);
 
 
     centralwidget = new QWidget(this);//中心窗口初始化
@@ -31,13 +32,14 @@ ui_control::ui_control(QWidget *parent) {
 
     netControl = new net_control();
 
-    connect(this, SIGNAL(ui_init_done()),netControl, SLOT(signal_launch()));
+    connect(this, SIGNAL(ui_init_done()), netControl, SLOT(signal_launch()));
     emit ui_init_done();
 
 
 }
 
-ui_control::~ui_control() noexcept {
+ui_control::~ui_control() noexcept
+{
     delete centralwidget;
     delete menubar;
     delete statusbar;
@@ -45,6 +47,7 @@ ui_control::~ui_control() noexcept {
 
 
 
-void ui_control::closeEvent(QCloseEvent *e) {
+void ui_control::closeEvent(QCloseEvent *e)
+{
     qApp->exit();
 }
